@@ -11,7 +11,7 @@
 <meta property='og:description' content=''>
 <meta property='og:url' content='https://liuyenting.github.io/'>
 <meta property='og:site_name' content='胡謅'>
-<meta property='og:type' content='website'><meta property='article:section' content=''><meta property='og:updated_time' content='2016-01-02T04:14:13Z'/><meta name='twitter:card' content='summary'><meta name='twitter:site' content='@'><meta name='twitter:creator' content='@'>
+<meta property='og:type' content='website'><meta property='article:section' content=''><meta property='og:updated_time' content='2016-01-02T04:14:13&#43;08:00'/><meta name='twitter:card' content='summary'><meta name='twitter:site' content='@'><meta name='twitter:creator' content='@'>
 <link rel="stylesheet" href="https://liuyenting.github.io//css/style.css"/></head>
 <body>
 
@@ -56,6 +56,25 @@
 SysCtlPeripheralEnable(SYSCTL_PERIPH_I2C0); GPIOPinConfigure(GPIO_PB2_I2C0SCL); GPIOPinTypeI2CSCL(GPIO_PORTB_BASE, GPIO_PIN_2); GPIOPinConfigure(GPIO_PB3_I2C0SDA); GPIOPinTypeI2CSDA(GPIO_PORTB_BASE, GPIO_PIN_3);  這段程式經過了三個大步驟： 1. SysCtlPeripheralEnable 把模組的時脈來源打開。 2. GPIOPinConfigure 把該腳位前端的多工器切換到想使用的模組，以第三行為例，就是把 PB2 的多工器，切換到 I2C 模組編號 0 的 SCL。 3. GPIOPinTypeI2CSCL 對這個腳位做細部的 I/O 控制，像是 pull-up resistor 要不要使用、該腳位是輸入還是輸出⋯⋯等。
         
         <a class="button is-link" href="https://liuyenting.github.io/posts/gpio_enable_special_function/" style="height:28px">
+          Read more
+          <span class="icon is-small">
+            <i class="fa fa-angle-double-right"></i>
+          </span>
+        </a>
+        
+      </div>
+    </article>
+    
+    <article>
+      <h2 class="subtitle is-6">January 1, 2016</h2>
+      <h1 class="title"><a href="https://liuyenting.github.io/posts/mat_to_qimage/">Mat 轉 QImage</a></h1>
+      <div class="content">
+        在嘗試把 Mat 印到 OpenGL 的元件上面時，通常會使用原生的影像元件進行操作而不再是原始的像素資料（cv::Mat）。也因為這樣，有了轉換函式的需求 :p
+在 Stack Overflow 上面逛的時候，有人早就處理好了這件事情。
+QImage Mat2QImage(const cv::Mat3b &amp;src) { QImage dest(src.cols, src.rows, QImage::Format_ARGB32); for (int y = 0; y &lt; src.rows; ++y) { const cv::Vec3b *srcrow = src[y]; QRgb *destrow = (QRgb*)dest.scanLine(y); for (int x = 0; x &lt; src.cols; ++x) { destrow[x] = qRgba(srcrow[x][2], srcrow[x][1], srcrow[x][0], 255); } } return dest; }  不過討論串裡面其實有很多方法，我最後選擇了這個。
+手邊在處理的影像，像素的格式是 RGB888，也就是一個像素由 24-bit 構成，三原色各佔用 8-bit 的空間。如果直接使用 QImage 的建構式創造出新的 QImage，由於 bits 排列的方式不同於 imread 在 Mat 當中的排列方式，會產生亂掉的圖像（應該直接說雜訊也可以⋯⋯）
+        
+        <a class="button is-link" href="https://liuyenting.github.io/posts/mat_to_qimage/" style="height:28px">
           Read more
           <span class="icon is-small">
             <i class="fa fa-angle-double-right"></i>
