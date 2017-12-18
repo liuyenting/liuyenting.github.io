@@ -18,7 +18,8 @@
       <pubDate>Sat, 02 Jan 2016 04:14:13 +0800</pubDate>
       
       <guid>https://liuyenting.github.io/posts/gpio_enable_special_function/</guid>
-      <description></description>
+      <description>&lt;p&gt;MCU 的 GPIO 上面會有各式各樣的特殊功能在裡頭，像是 I2C、UART、PWM 等等，不過，要使用這些功能以前，需要先對這些 GPIO 做微調，否則腳位們依舊只會表現為平常的 GPIO。
+&lt;/p&gt;</description>
     </item>
     
     <item>
