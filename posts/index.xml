@@ -18,7 +18,7 @@
       <pubDate>Sat, 02 Jan 2016 04:14:13 +0800</pubDate>
       
       <guid>https://liuyenting.github.io/posts/gpio_enable_special_function/</guid>
-      <description>MCU 的 GPIO 上面會有各式各樣的特殊功能在裡頭，像是 I2C、UART、PWM 等等，不過，要使用這些功能以前，需要先對這些 GPIO 做微調，否則腳位們依舊只會</description>
+      <description></description>
     </item>
     
     <item>
@@ -27,7 +27,8 @@
       <pubDate>Fri, 01 Jan 2016 10:47:21 +0800</pubDate>
       
       <guid>https://liuyenting.github.io/posts/mat_to_qimage/</guid>
-      <description>在嘗試把 Mat 印到 OpenGL 的元件上面時，通常會使用原生的影像元件進行操作而不再是原始的像素資料（cv::Mat）。也因為這樣，有了轉換函式的需求 :p more 在</description>
+      <description>&lt;p&gt;在嘗試把 Mat 印到 OpenGL 的元件上面時，通常會使用原生的影像元件進行操作而不再是原始的像素資料（&lt;code&gt;cv::Mat&lt;/code&gt;）。也因為這樣，有了轉換函式的需求 :p
+&lt;/p&gt;</description>
     </item>
     
   </channel>
