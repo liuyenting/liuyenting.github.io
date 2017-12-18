@@ -8,7 +8,9 @@
 
 <meta property='og:title' content='Mat 轉 QImage - 胡謅'>
 <meta property='og:description' content='在嘗試把 Mat 印到 OpenGL 的元件上面時，通常會使用原生的影像元件進行操作而不再是原始的像素資料（cv::Mat）。也因為這樣，有了轉換函式的需求 :p
-'>
+more 在 Stack Overflow 上面逛的時候，有人早就處理好了這件事情。
+QImage Mat2QImage(const cv::Mat3b &amp;src) { QImage dest(src.cols, src.rows, QImage::Format_ARGB32); for (int y = 0; y &lt; src.rows; &#43;&#43;y) { const cv::Vec3b *srcrow = src[y]; QRgb *destrow = (QRgb*)dest.scanLine(y); for (int x = 0; x &lt; src.cols; &#43;&#43;x) { destrow[x] = qRgba(srcrow[x][2], srcrow[x][1], srcrow[x][0], 255); } } return dest; }  不過討論串裡面其實有很多方法，我最後選擇了這個。
+手邊在處理的影像，像素的格式是 RGB888，也就是一個像素由 24-bit 構成，三原色各佔用 8-bit 的空間。如果直接使用 QImage 的建構式創造出新的 QImage，由於 bits 排列的方式不同於 imread 在 Mat 當中的排列方式，會產生亂掉的圖像（應該直接說雜訊也可以⋯⋯）'>
 <meta property='og:url' content='https://liuyenting.github.io/posts/mat_to_qimage/'>
 <meta property='og:site_name' content='胡謅'>
 <meta property='og:type' content='article'><meta property='article:section' content='Posts'><meta property='article:tag' content='C/C&#43;&#43;'><meta property='article:published_time' content='2016-01-01T10:47:21&#43;08:00'/><meta property='article:modified_time' content='2016-01-01T10:47:21&#43;08:00'/><meta name='twitter:card' content='summary'><meta name='twitter:site' content='@'><meta name='twitter:creator' content='@'>
@@ -59,8 +61,11 @@
     <h1 class="title">Mat 轉 QImage</h1>
       
     <div class="content">
-      <p>在嘗試把 Mat 印到 OpenGL 的元件上面時，通常會使用原生的影像元件進行操作而不再是原始的像素資料（<code>cv::Mat</code>）。也因為這樣，有了轉換函式的需求 :p
-</p>
+      
+
+<p>在嘗試把 Mat 印到 OpenGL 的元件上面時，通常會使用原生的影像元件進行操作而不再是原始的像素資料（<code>cv::Mat</code>）。也因為這樣，有了轉換函式的需求 :p</p>
+
+<h1 id="more">more</h1>
 
 <p>在 Stack Overflow 上面逛的時候，<a href="http://stackoverflow.com/questions/5026965/how-to-convert-an-opencv-cvmat-to-qimage/8866986#8866986">有人</a>早就處理好了這件事情。</p>
 
@@ -101,6 +106,7 @@
 </code></pre>
 
 <p>讓程式針對輸入的影像格式即可。以這份 snippet 為例，新的 QImage 的像素格式為 ARGB，其中 alpha 因為用不到所以被寫死為 0xFF，而我們已知 Mat 個顏色通道順序為 BGR，這邊直接調換元素的 indices，即可輕鬆轉回 RGB 的形式。</p>
+
     </div>
     
   </div>
