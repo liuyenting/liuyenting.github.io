@@ -9,6 +9,8 @@ enableRobotsTXT = true
 
 [params.info]
 enableSocial = true
+# adds powered by Hugo and Kiss below Copyright section
+poweredby = true
 
 [params.social]
 github = "liuyenting"
