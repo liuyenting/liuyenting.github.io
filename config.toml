@@ -1,17 +1,25 @@
 baseURL = "https://liuyenting.github.io/"
 languageCode = "zh-TW"
+# auto-detect Chinese/Japanese/Korean Languages in the content
+hasCJKLanguage = true
 title = "胡謅"
 theme = "kiss"
 copyright = "&copy; <a href=\"https://github.com/liuyenting\">Andy Liu</a> 2017"
-googleAnalytics = ""
-Paginate = 3
+paginate = 3
 enableRobotsTXT = true
 
 [params.info]
-enableSocial = true
-# adds powered by Hugo and Kiss below Copyright section
-poweredby = true
+  enableSocial = true
+  # adds powered by Hugo and Kiss below Copyright section
+  poweredby = true
 
 [params.social]
-github = "liuyenting"
-linkedin = "y3nr1ng"
+  github = "liuyenting"
+  linkedin = "y3nr1ng"
+
+[taxonomies]
+  tag = [ "C/C++", "Java", "LabVIEW", "Python" ]
+  category = [ "Embedded", "Language" ]
+
+[blackfriday]
+  noEmptyLineBeforeBlock = false
