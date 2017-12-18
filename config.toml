@@ -2,3 +2,14 @@ baseURL = "https://liuyenting.github.io/"
 languageCode = "zh-TW"
 title = "胡謅"
 theme = "kiss"
+copyright = "&copy; <a href=\"https://github.com/liuyenting\">Andy Liu</a> 2017"
+googleAnalytics = ""
+Paginate = 3
+enableRobotsTXT = true
+
+[params.info]
+enableSocial = true
+
+[params.social]
+github = "liuyenting"
+linkedin = "y3nr1ng"
