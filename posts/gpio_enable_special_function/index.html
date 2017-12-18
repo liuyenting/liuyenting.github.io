@@ -79,10 +79,10 @@ GPIOPinTypeI2CSDA(GPIO_PORTB_BASE, GPIO_PIN_3);</code></pre></div></p>
 <ol>
 <li><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#7c7c79;margin-right:0.4em;padding:00.4em00.4em;">1</span>SysCtlPeripheralEnable</code></pre></div> 把模組的時脈來源打開。</li>
 <li><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">GPIOPinConfigure</code></pre></div> 把該腳位前端的多工器切換到想使用的模組，以第三行為例，就是把 PB2 的多工器，切換到 I2C 模組編號 0 的 SCL。</li>
-<li><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">GPIOPinTypeI2CSCL</code></pre></div> 對這個腳位做細部的 I/O 控制，像是 pull-up resistor 要不要使用、該腳位是輸入還是輸出⋯⋯等。</li>
+<li><code>GPIOPinTypeI2CSCL</code> 對這個腳位做細部的 I/O 控制，像是 pull-up resistor 要不要使用、該腳位是輸入還是輸出⋯⋯等。</li>
 </ol>
 
-<p>而測試的時候，只有在初始化的時候有使用到 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">GPIOPinConfigure</code></pre></div> 來切換多工器，後面的初始化（也就是除了 I2C0 以外的模組，I2C1 到 I2C3），全部都沒有做這的動作。因此 I2C 的初始雖然完成了，但信號不會出來。</p>
+<p>而測試的時候，只有在初始化的時候有使用到 <code>GPIOPinConfigure</code> 來切換多工器，後面的初始化（也就是除了 I2C0 以外的模組，I2C1 到 I2C3），全部都沒有做這的動作。因此 I2C 的初始雖然完成了，但信號不會出來。</p>
 
     </div>
     
