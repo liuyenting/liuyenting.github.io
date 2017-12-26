@@ -5,15 +5,20 @@
   <url>
     <loc>https://liuyenting.github.io/posts/gpio_enable_special_function/</loc>
     <lastmod>2016-01-02T04:14:13+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://liuyenting.github.io/posts/mat_to_qimage/</loc>
     <lastmod>2016-01-01T10:47:21+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://liuyenting.github.io/</loc>
+    <changefreq>weekly</changefreq>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -24,6 +29,7 @@
   
   <url>
     <loc>https://liuyenting.github.io/</loc>
+    <changefreq>weekly</changefreq>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -35,12 +41,14 @@
   <url>
     <loc>https://liuyenting.github.io/posts/</loc>
     <lastmod>2016-01-02T04:14:13+08:00</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://liuyenting.github.io/</loc>
     <lastmod>2016-01-02T04:14:13+08:00</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
